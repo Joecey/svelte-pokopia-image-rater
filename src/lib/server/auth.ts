@@ -5,6 +5,10 @@ import { env } from '$env/dynamic/private';
 import { getRequestEvent } from '$app/server';
 import { db } from '$lib/server/db';
 
+// TODO: Run npm run auth:schema to generate the auth schema
+// TODO: Run npm run db:push to update your database
+// TODO: Check ORIGIN & BETTER_AUTH_SECRET in .env and adjust them to your needs
+// TODO: Visit /demo/better-auth route to view the demo
 export const auth = betterAuth({
 	baseURL: env.ORIGIN,
 	secret: env.BETTER_AUTH_SECRET,

@@ -1,42 +1,62 @@
-# sv
+# Svelte Pokopia Image Rater
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## Setup
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+### 1. Install Dependencies
 
 ```sh
-# create a new project
-npx sv create my-app
+npm install
 ```
 
-To recreate this project with the same configuration:
+### 2. Configure Environment
+
+Copy `.env.example` to `.env` and configure:
+
+- TODO: Check DATABASE_URL in .env and adjust it to your needs
+- TODO: Check ORIGIN & BETTER_AUTH_SECRET in .env and adjust them to your needs
+
+### 3. Setup Database (Drizzle)
 
 ```sh
-# recreate this project
-npx sv@0.15.1 create --template minimal --types ts --add prettier eslint better-auth="demo:password" drizzle="database:postgresql+postgresql:neon" tailwindcss="plugins:typography" --install npm svelte-pokopia-image-rater
+# Update your database schema
+npm run db:push
 ```
 
-## Developing
+### 4. Setup Authentication (Better Auth)
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+```sh
+# Generate the auth schema
+npm run auth:schema
+
+# Update your database with auth tables
+npm run db:push
+```
+
+### 5. Verify Setup
+
+- TODO: Visit `/demo/better-auth` route to view the demo
+
+## Running the Application
+
+Start the development server:
 
 ```sh
 npm run dev
 
-# or start the server and open the app in a new browser tab
+# or open in browser automatically
 npm run dev -- --open
 ```
 
-## Building
-
-To create a production version of your app:
+Build for production:
 
 ```sh
 npm run build
+npm run preview
 ```
 
-You can preview the production build with `npm run preview`.
+## Documentation
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- [SvelteKit](https://svelte.dev/docs/kit)
+- [Better Auth](https://www.better-auth.com/docs)
+- [Drizzle ORM](https://orm.drizzle.team/docs/overview)
+- [TailwindCSS](https://tailwindcss.com/docs)
