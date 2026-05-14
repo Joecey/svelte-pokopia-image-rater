@@ -10,7 +10,19 @@
 			"options": {
 				"parser": "svelte"
 			}
+		},
+		{
+			"files": ["*.ts", "*.tsx"],
+			"options": {
+				"parser": "typescript"
+			}
+		},
+		{
+			"files": ["*.html"],
+			"options": {
+				"parser": "html"
+			}
 		}
 	],
-	"tailwindStylesheet": "./src/routes/layout.css"
+	"tailwindStylesheet": "./apps/web/src/routes/layout.css"
 }

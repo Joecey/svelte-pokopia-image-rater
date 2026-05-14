@@ -6,7 +6,7 @@ import svelte from 'eslint-plugin-svelte';
 import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import ts from 'typescript-eslint';
-import svelteConfig from './svelte.config.js';
+import svelteConfig from './apps/web/svelte.config.js';
 
 const gitignorePath = path.resolve(import.meta.dirname, '.gitignore');
 
@@ -26,13 +26,22 @@ export default defineConfig(
 		}
 	},
 	{
-		files: ['**/*.svelte', '**/*.svelte.ts', '**/*.svelte.js'],
+		files: ['apps/web/**/*.svelte', 'apps/web/**/*.svelte.ts', 'apps/web/**/*.svelte.js'],
 		languageOptions: {
 			parserOptions: {
 				projectService: true,
 				extraFileExtensions: ['.svelte'],
 				parser: ts.parser,
 				svelteConfig
+			}
+		}
+	},
+	{
+		files: ['apps/scraper/**/*.ts', 'apps/scraper/**/*.js'],
+		languageOptions: {
+			globals: { ...globals.node },
+			parserOptions: {
+				projectService: true
 			}
 		}
 	},
